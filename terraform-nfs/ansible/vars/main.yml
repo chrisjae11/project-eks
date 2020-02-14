@@ -1,0 +1,11 @@
+---
+
+filesystem: ext4
+raid_level: 0
+raid_name: raid-array
+raid_dev: /dev/md0
+raid_mount: /mnt/md0
+raid_devices:
+  - /dev/xvdf
+  - /dev/xvdg
+  - /dev/xvdh

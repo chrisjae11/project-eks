@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  remote_user: ubuntu
+  vars_files:
+    - vars/main.yml
+  tasks:
+
+    - name: update
+      apt: name="*" state=latest update_cache=yes
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+    - name: install mdadm
+      apt: name="{{item}}" state=present update_cache=yes
+      loop: [ 'mdadm', 'nfs-common', 'nfs-kernel-server' ]
